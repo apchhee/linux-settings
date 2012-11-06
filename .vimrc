@@ -2,6 +2,9 @@
 "
 set nocompatible                         " Выключаем совместимость с vi
 
+" Set leader to comma
+let mapleader = ","
+
 """ Mappings section 
 map <F2> :w<CR>
 " Ctrl+PageUp-Down to change buffer
@@ -10,9 +13,12 @@ map <C-PageDown> :bn<CR>
 " ;; to exit edit mode, type ; to : in normal mode
 imap ;; <Esc>                       
 nmap ; :
+map <leader>x :!chmod +x %<CR>            " Make executable
 
-" Set leader to comma
-let mapleader = ","
+""" Mappings for olympiads
+map <leader>r :!g++ -Wall -Wextra -O3 % -o %:r<CR>
+map <leader>d :!g++ -Wall -Wextra -g % -o %:r<CR>
+
 
 let &tags = &tags . " .tags;/ tags;/"
 " Completion settings
