@@ -16,9 +16,8 @@ nmap ; :
 map <leader>x :!chmod +x %<CR>            " Make executable
 
 """ Mappings for olympiads
-map <leader>r :!g++ -Wall -Wextra -O3 % -o %:r<CR>
+map <leader>run :!./%:r<CR>
 map <leader>d :!g++ -Wall -Wextra -g % -o %:r<CR>
-
 
 let &tags = &tags . " .tags;/ tags;/"
 " Completion settings
@@ -28,7 +27,7 @@ set showmatch                            " Show matching bracket
 
 set hidden                               " many buffers in memory
 
-" set autoread                           " Перечитывать открытые файлы если они были изменены извне
+set autoread                           " Перечитывать открытые файлы если они были изменены извне
 filetype on                              " Включаем распознавание типов файлов и типо-специфичные плагины
 filetype plugin on
 filetype indent plugin on
@@ -75,7 +74,7 @@ set bs=2
 " autocmd don't like multiple loading
 if !exists("auto_cmds_loaded")
     let auto_cmds_loaded=1
-    autocmd BufWritePost .vimrc :source /home/vlevkevich/.vimrc " always reload .vimrc after saving
+    autocmd BufWritePost .vimrc :source ~/.vimrc " always reload .vimrc after saving
     autocmd FileType c,cpp,h,python,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e "remove trailing spaces
 endif
 
