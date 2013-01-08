@@ -1,0 +1,7 @@
+#! /bin/bash
+gnome-settings-daemon &
+nm-applet &
+/usr/lib/gnome-settings-daemon/gnome-fallback-mount-helper &
+gnome-screensaver &
+dropbox start &
+exec awesome
