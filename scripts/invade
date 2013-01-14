@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# no password authorization
+target=$1
+scp ~/.ssh/id_rsa.pub vlevkevich@$target:tmp
+ssh vlevkevich@$target 'mkdir .ssh; chmod 700 .ssh; cat tmp >>.ssh/authorized_keys; chmod 700 ~/.ssh/authorized_keys; rm tmp'
+
+# copy files
+scp ~/.vimrc ~/.profile ~/.bashrc vlevkevich@$target:
+
