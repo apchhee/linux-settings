@@ -24,5 +24,9 @@ if [ -d "$HOME/scripts" ] ; then
     PATH="$HOME/scripts:$PATH"
 fi
 
-MY_SSH_SOCK="$HOME/.ssh-agent-$USER-screen"
-test $SSH_AUTH_SOCK && rm -f $MY_SSH_SOCK && ln -sf $SSH_AUTH_SOCK $MY_SSH_SOCK
+
+if [[ -z $MY_SSH_SOCK ]]; then
+    export MY_SSH_SOCK="$HOME/.ssh-agent-$USER-screen"
+    test $SSH_AUTH_SOCK && rm -f $MY_SSH_SOCK && ln -sf $SSH_AUTH_SOCK $MY_SSH_SOCK
+fi
+
