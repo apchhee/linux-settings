@@ -7,7 +7,7 @@ attrcolor b ".I"
 # tell screen how to set colors. AB = background, AF=foreground
 termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 # set TERM
-term screen-256color-bce
+term screen
 # 
 #defbce "on"
 
@@ -17,18 +17,18 @@ shell -$SHELL
 # Number of lines stored in a buffer
 defscrollback 10000
 
-# F1-F9 - select screens 1-9
-# bindkey -k k1 select 1
-# bindkey -k k2 select 2
-# bindkey -k k3 select 3
-# bindkey -k k4 select 4
-# bindkey -k k5 select 5
-# bindkey -k k6 select 6
-# bindkey -k k7 select 7
-# bindkey -k k8 select 8
-# bindkey -k k9 select 9
-# F10 - create screen
-# bindkey -k k; screen 1
+# F1-F10 - select screens 1-9-0
+bindkey -k k1 select 1
+bindkey -k k2 select 2
+bindkey -k k3 select 3
+bindkey -k k4 select 4
+bindkey -k k5 select 5
+bindkey -k k6 select 6
+bindkey -k k7 select 7
+bindkey -k k8 select 8
+bindkey -k k9 select 9
+bindkey -k k; select 0
+
 # F11 - previous screen
 # bindkey -k F1 prev
 # F12 - next screen
@@ -38,3 +38,4 @@ bind c screen 1
 bind 0 select 10
 
 setenv SSH_AUTH_SOCK "$HOME/.ssh-agent-$USER-screen"
+
