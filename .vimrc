@@ -10,14 +10,18 @@ map <F2> :w<CR>
 " Ctrl+PageUp-Down to change buffer
 map <C-PageUp> :bp<CR>
 map <C-PageDown> :bn<CR>
+nmap <ESC>[5;5~ <C-PageUp>        " i love you, screen
+nmap <ESC>[6;5~ <C-PageDown>      " 
+map <C-m> <C-x><C-u>
+
 " ;; to exit edit mode, type ; to : in normal mode
 imap ;; <Esc>                       
 nmap ; :
 map <leader>x :!chmod +x %<CR>            " Make executable
 
 """ Mappings for olympiads
-map <leader>run :!./%:r<CR>
-map <leader>d :!g++ -Wall -Wextra -g % -o %:r<CR>
+map <leader>r :!./%:r<CR>
+map <leader>b :!g++ -Wall -Wextra -g % -o %:r<CR>
 
 let &tags = &tags . " .tags;/ tags;/"
 " Completion settings
@@ -53,8 +57,6 @@ set ruler                                " line and column number, separated by 
 set confirm
 " Don't wrap long lines
 set nowrap
-" Enable mouse in all modes
-set mouse+=a
 
 " Hightlighting
 set cursorline
@@ -75,6 +77,7 @@ set bs=2
 if !exists("auto_cmds_loaded")
     let auto_cmds_loaded=1
     autocmd BufWritePost .vimrc :source ~/.vimrc " always reload .vimrc after saving
+    autocmd BufWritePost .vim/colors/wombat256mod.vim :source ~/.vimrc
     autocmd FileType c,cpp,h,python,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e "remove trailing spaces
 endif
 
