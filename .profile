@@ -36,3 +36,5 @@ fi
 export SVN_EDITOR=vim
 export PAGER=less
 export LANG=en_US.UTF-8
+
+/home/nika/.config/yandex-disk/autostart.sh
