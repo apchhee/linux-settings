@@ -17,6 +17,9 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.bin" ] ; then
+    PATH="$HOME/.bin:$PATH"
+fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
@@ -30,3 +33,6 @@ if [[ -z $MY_SSH_SOCK ]]; then
     test $SSH_AUTH_SOCK && rm -f $MY_SSH_SOCK && ln -sf $SSH_AUTH_SOCK $MY_SSH_SOCK
 fi
 
+export SVN_EDITOR=vim
+export PAGER=less
+export LANG=en_US.UTF-8

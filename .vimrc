@@ -83,6 +83,8 @@ endif
 
 set laststatus=2   " always show filename and current mode
 
+set diffopt+=iwhite " ignore whitespaces in diff
+
 " identation
 set cindent
 set smartindent

@@ -10,6 +10,8 @@ termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 term screen
 # 
 #defbce "on"
+# disable visual bell
+vbell off
 
 altscreen on
 shell -$SHELL
