@@ -106,3 +106,5 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+EC() { echo -e '\e[1;31m'exit code $?'\e[m'; }
+trap EC ERR
